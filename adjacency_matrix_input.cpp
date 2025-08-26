@@ -10,7 +10,7 @@ int main(){
            if(i==j)
              adj_matrix[i][j]=1;
 
-    for(int i=0;i<n;i++){
+    for(int i=0;i<e;i++){
              int a,b;
             cin >> a >> b;
             adj_matrix[a][b] = 1;
