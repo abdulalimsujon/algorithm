@@ -1,10 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-char grid[105][105];
-bool vis[105][105];
-pair<int,int> parent[105][105]; 
+char grid[1005][1005];
+bool vis[1005][1005];
+int lvl[1005][1005];
+pair<int,int> parent[1005][1005]; 
 int n, m;
+int si, sj, di, dj;
 
 vector<pair<int,int>> d = {{0,1}, {0,-1}, {-1,0}, {1,0}};
 
@@ -16,18 +18,20 @@ void bfs(int si, int sj) {
     queue<pair<int,int>> q;
     q.push({si, sj});
     vis[si][sj] = true;
-    parent[si][sj] = {-1,-1};
+    lvl[si][sj] = 0;
 
     while (!q.empty()) {
-        auto [x, y] = q.front();
+        auto [p_i, p_j] = q.front();
         q.pop();
 
-        for (auto [dx, dy] : d) {
-            int nx = x + dx, ny = y + dy;
-            if (valid(nx, ny) && !vis[nx][ny]) {
-                vis[nx][ny] = true;
-                parent[nx][ny] = {x, y};
-                q.push({nx, ny});
+        for (int i = 0; i < 4; i++) {
+            int ci = p_i + d[i].first;
+            int cj = p_j + d[i].second;
+            if (valid(ci, cj) && !vis[ci][cj]) {
+                vis[ci][cj] = true;
+                lvl[ci][cj] = lvl[p_i][p_j] + 1;
+                parent[ci][cj] = {p_i, p_j};
+                q.push({ci, cj});
             }
         }
     }
@@ -36,38 +40,39 @@ void bfs(int si, int sj) {
 int main() {
     cin >> n >> m;
 
-    int si, sj, di, dj;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             cin >> grid[i][j];
-            if (grid[i][j] == 'R') {
-                si = i, sj = j;
-            }
-            if (grid[i][j] == 'D') {
-                di = i, dj = j;
-            }
+            if (grid[i][j] == 'R') si = i, sj = j;
+            if (grid[i][j] == 'D') di = i, dj = j;
         }
     }
 
     memset(vis, false, sizeof(vis));
-    bfs(si, sj);
+    memset(lvl, -1, sizeof(lvl));
 
-    if (!vis[di][dj]) {
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) cout << grid[i][j];
-            cout << "\n";
+    bfs(si, sj);   
+
+    if (vis[di][dj]) {   
+        int x = di, y = dj;
+        while (!(x == si && y == sj)) {
+            pair<int,int> p = parent[x][y];
+            if (p.first== -1 && p.second == -1) break;
+            if (!(x == di && y == dj) && !(x == si && y == sj)) {
+                grid[x][y] = 'X';
+            }
+            x = p.first;
+            y = p.second;
         }
-        return 0;
     }
-    int x = di, y = dj;
-    while (!(x == si && y == sj)) {
-        if (grid[x][y] == '.') grid[x][y] = 'X';
-        tie(x, y) = parent[x][y];
-    }
+
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) cout << grid[i][j];
+        for (int j = 0; j < m; j++){
+           cout << grid[i][j];
+           
+        } 
         cout << "\n";
     }
-
+   
     return 0;
 }
