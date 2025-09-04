@@ -9,3 +9,5 @@
   - Time Complexity → **O(V + E)**
 - **Bellman Ford**
   - Time Complexity → **O(V*E)**
+- **Dijksta algoritm**
+  - Time Complexity → **E(logv)**
