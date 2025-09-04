@@ -8,4 +8,4 @@
 - **BFS (Breadth First Search)**
   - Time Complexity → **O(V + E)**
 - **Bellman Ford**
- - Time Complexity → **O(V*E)**
+  - Time Complexity → **O(V*E)**
