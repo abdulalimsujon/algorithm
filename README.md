@@ -7,9 +7,11 @@
 
 - **BFS (Breadth First Search)**
   - Time Complexity → **O(V + E)**
+- **DFS (Breadth First Search)**
+  - Time Complexity → **O(V + E)**
 - **Bellman Ford**
   - Time Complexity → **O(V*E)**
 - **Dijksta algoritm**
   - Time Complexity → **E(logv)**
-- ** Floyd-Warshall**
+- **Floyd-Warshall**
   - Time Complexity → **O(v^3)**
