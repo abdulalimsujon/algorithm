@@ -1,6 +1,22 @@
 #include<bits/stdc++.h>
 using namespace std;
 int par[10005];
+
+
+//  using loop
+
+// int find(int node){
+
+//     while(node != -1){
+//          node  = par[node];
+//     }
+//     return node;
+// }
+
+
+  // using recursion
+
+//   complexity = O(logn)
 int find(int node){
     if(par[node]== -1){
         return node;
@@ -9,6 +25,8 @@ int find(int node){
     par[node] = leader;
     return leader;
 }
+
+
 int main()
 {
     memset(par, -1, sizeof(par));
@@ -19,7 +37,9 @@ int main()
     par[4] = 5;
     par[5] = 3;
 
-    for (int i = 0; i < 6;i++){
+    find(4);
+    for (int i = 0; i < 6; i++)
+    {
         cout << i << "===" << par[i] << endl;
     }
 }

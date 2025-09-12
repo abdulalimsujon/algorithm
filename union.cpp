@@ -31,6 +31,8 @@ int main()
 
 
     dsu_union(1, 2);
+    dsu_union(2, 0);
+    dsu_union(3, 1);
 
     for (int i = 0; i < 6;i++){
         cout << i << "===" << par[i] << endl;
