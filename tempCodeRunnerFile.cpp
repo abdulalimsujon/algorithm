@@ -1,1 +1,2 @@
 
+    cout << fibo(n) << endl;
