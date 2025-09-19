@@ -15,3 +15,5 @@
   - Time Complexity → **E(logv)**
 - **Floyd-Warshall**
   - Time Complexity → **O(v^3)**
+- **knap-sack**
+  - Time Complexity → **O(N*W)**
