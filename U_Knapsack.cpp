@@ -27,23 +27,25 @@ int knapsack(int i,int max_weight){
 int main(){
 
     int n,max_weight;
-    cin >> n ;
-    for(int i=0;i<n;i++){
-        cin >> val[i];
-    };
+
+    cin >> n;
 
     for(int i=0;i<n;i++){
-        cin >> w[i];
+         cin >> val[i];
     };
-
+       for(int i=0;i<n;i++){
+         cin >> w[i];
+    };
     cin >> max_weight;
     for(int i =0 ;i <=n;i++){
       for(int j=0; j<=max_weight;j++){
         dp[i][j]= -1;
       }
     }
-      
 
+      
+  
+      
    cout << knapsack(n-1,max_weight) << endl;
 
 }
