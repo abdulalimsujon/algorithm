@@ -3,11 +3,11 @@ using namespace std;
  int a[1005];
  int dp[1005][1005];
 
- bool subset_sum(int i,int sum){
+ int subset_sum(int i,int sum){
 
     if(i<0){
-        if(sum == 0) return true;
-        else return false;
+        if(sum == 0) return 1;
+        else return 0;
     }
 
     if(dp[i][sum]!=-1){
@@ -15,10 +15,10 @@ using namespace std;
     }
 
     if(a[i]<=sum){
-        bool opt1 = subset_sum(i-1,sum - a[i] );
-        bool opt2= subset_sum(i-1,sum);
+        int opt1 = subset_sum(i-1,sum - a[i] );
+        int opt2= subset_sum(i-1,sum);
         
-        dp[i][sum]= opt1 || opt2;
+        dp[i][sum]= opt1 + opt2;
 
         return dp[i][sum];
     }else{
@@ -37,11 +37,7 @@ int main(){
     int sum;
     cin >> sum;
     memset(dp,-1,sizeof(dp));
-   if(subset_sum(n-1,sum)){
-    cout << "possible\n" ;
-
-   }else{
-     cout << "impossible\n" ;
-   }
+   
+    cout << subset_sum(n-1,sum) << '\n';
 
 }
