@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n,m;
+    cin >> n;
+    int A[n];
+    for(int i=0;i<n;i++){
+       cin >> A[i];
+    }
+    cin >> m;
+    int B[m];
+    for(int j=0;j<m;j++){
+        cin >> B[j];
+    }
+    int C[n+m];
+    int i=0,j=0,curr=0;
+    while(i<n && j < m){
+        if(A[i]<B[j]){
+            C[curr] = A[i]; 
+            i++;
+            curr++;
+        }else{
+          C[curr] = B[j]; 
+            j++;
+            curr++;
+        }
+    }
+
+  while(i<n){
+        C[curr] = A[i];
+        i++;
+        curr++;
+    }
+    
+
+    while(j<m){
+        C[curr] = B[j];
+        j++;
+        curr++;
+    }
+
+    for(int i=0;i<n+m;i++){
+        cout << C[i] << " ";
+    }
+  
+}
