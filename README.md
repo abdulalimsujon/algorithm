@@ -17,3 +17,5 @@
   - Time Complexity → **O(v^3)**
 - **knap-sack**
   - Time Complexity → **O(N*W)**
+  - - **knap-sack**
+  - Time Complexity → **O(N*(logN)**
