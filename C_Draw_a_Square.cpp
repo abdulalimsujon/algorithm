@@ -9,10 +9,13 @@ int main() {
         int l, r, d, u;
         cin >> l >> r >> d >> u;
 
-        if ((l == 1 && r == 1) || (d == 1 && u == 1)) {
-            cout << "No" << endl;
+ 
+        if (l == r && r == d && d == u) {
+                    
+            cout << "Yes\n";  
+        
         } else {
-            cout << "Yes" << endl;
+                cout << "No\n"; 
         }
     }
 

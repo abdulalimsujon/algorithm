@@ -7,21 +7,20 @@ int main() {
     while (t--) {
         int n;
         cin >> n;
-        vector<int> h(n);
-        for (int i = 0; i < n; ++i) cin >> h[i];
-        
-        if (n == 1) {
-            cout << h[0] << '\n';
-        } else if (n == 2) {
-            int a = h[0], b = h[1];
-            if (a < b) swap(a, b);
-            cout << min(a, (a + b + 1) / 2) << '\n';
-        } else {
-            // For 3 or more monsters
-            sort(h.begin(), h.end(), greater<int>());
-            int a = h[0], b = h[1];
-            cout << min(a, (a + b + 1) / 2) << '\n';
+        int arr[n];
+        int sum = 0;
+        for (int i = 0; i < n; i++)
+        {
+            cin >> arr[i];
         }
+
+        for (int i = 0; i < n;i++){
+            for (int j = n-1; j > 0;j--){
+               
+            }
+        }
+
+            cout << sum;
     }
     return 0;
 }
