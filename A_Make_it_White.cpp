@@ -11,15 +11,10 @@ int main() {
         string s;
         cin >> s;
 
-        int first_black = -1, last_black = -1;
+        int first_black , last_black ;
 
-        // find first and last 'B'
-        for (int i = 0; i < n; i++) {
-            if (s[i] == 'B') {
-                if (first_black == -1) first_black = i;
-                last_black = i;
-            }
-        }
+        first_black = s.find('B');
+        last_black = s.rfind('B');
 
         int total = last_black - first_black + 1;
         cout << total << '\n';
