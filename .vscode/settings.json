@@ -92,6 +92,10 @@
     "iostream": "cpp",
     "ostream": "cpp",
     "cmath": "cpp",
-    "map": "cpp"
+    "map": "cpp",
+    "string": "cpp",
+    "unordered_map": "cpp",
+    "unordered_set": "cpp",
+    "string_view": "cpp"
   }
 }
